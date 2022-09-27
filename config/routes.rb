@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   
   get 'event/index'
   get 'users/:id' => 'users#show'
+  get 'event/create'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

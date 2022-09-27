@@ -3,7 +3,7 @@
 <div class="container">
   <% @events.each do |event| %>
     <div class = "event">
-      <p class = "host"><%= event.creator %></p>
+      <p class = "creator"><%= event.creator %></p>
     <% end %>
       <h3 class="title"><%= event.title %> </h1>
       <p class= "location"><%= event.location%></p>
