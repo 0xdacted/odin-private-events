@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   
-  get 'event/index'
-  get 'users/:id' => 'users#show'
-  get 'event/create'
+  resources :events, only: [:new, :create, :index]
+  devise_scope :user do
+    get 'users/:id' => 'users#show' 
+  end
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
