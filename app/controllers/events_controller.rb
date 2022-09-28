@@ -12,7 +12,12 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = @user.events.build(event_params)
+    @event = current_user.events.build(event_params)
+      if @event.save
+        redirect_to :index
+      else
+        render :new
+      end
   end
 
   private
