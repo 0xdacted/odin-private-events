@@ -2,9 +2,9 @@
 <p> <%= @event.body %> </p>
 <p> <%= @event.location %> </p>
 <p> <%= @event.date %>
-<%= form_with(url: "/rsvps", method: "post") do %>
-   <%# <% next if event.creator == current_user || event.attendees.include?(current_user) %> 
-     <% label_tag(:rsvp) %>
-     <%= check_box_tag(:rsvp) %>
-     <%= submit_tag("Attend") %>
- <% end %>
+<% if @event.creator == current_user || @event.attendees.include?(current_user) %> 
+  <p> You are already attending this event! </p>
+<% else %>
+  <%= button_to "Accept Invite (Attend)", rsvps_path(attended_event_id: @event.id, attendee_id: current_user.id), :method => :post %>
+<% end %>
+  

@@ -1,8 +1,7 @@
 class RsvpsController < ApplicationController
  
-  def attend
-    @event = Event.find(params[:id])
-    @event.attendees << current_user
+  def create
+    @rsvp = current_user.attended_events.create(attended_event_id: params[:event_id], attendee_id: params[:user_id])
     redirect_to 'events#index'
   end
 

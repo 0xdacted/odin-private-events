@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   
   resources :events, only: [:new, :create, :index, :show]
-  resources :rsvps, only: [:rsvp]
+  resources :rsvps, only: [:create]
   devise_scope :user do
     get 'users/:id' => 'users#show' 
   end
