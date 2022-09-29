@@ -1,0 +1,7 @@
+<%= form_with model: @edit do |form| %>
+  Edit title: <%= form.text_field :title, value: "title" %>
+  Edit details: <%= form.text_field :body, value: "details" %>
+  Edit location: <%= form.text_field :location, value: "location" %>
+  Edit date: <%= form.datetime_select :date %>
+<%= form.submit %>
+<% end %>
