@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :events do
     member do
       put '/events/:id', to: 'rsvps#rsvp', as: :rsvp
+      delete 'events/:id', to: 'rsvps#cancel_rsvp', as: :cancel_rsvp
     end
   end
 
