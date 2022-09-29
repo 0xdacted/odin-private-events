@@ -4,13 +4,14 @@ class RsvpsController < ApplicationController
     @event = Event.find(params[:id])
     @event.attendees << current_user
     current_user.attended_events << @event
-    redirect_to 'events#index'
+    redirect_to @event
   end
 
   def cancel_rsvp
-    @event = Event.find(params[:id]) 
-    @event.attendees.delete(curent_user)
-    redirect_to 'events#index'
+    @event = Event.find(params[:id])
+    @user = current_user 
+    @event.attendees.delete(@user)
+    redirect_to @event
   end
  
 end

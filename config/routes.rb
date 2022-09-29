@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     end
   end
 
+  scope do
+    get 'events/:id' => 'events#show' 
+  end
+
   resources :rsvps
 
   devise_scope :user do
@@ -19,14 +23,12 @@ Rails.application.routes.draw do
     get 'users/profile' => 'users#show'
   end
 
-  scope do
-    get 'events/:id' => 'events#show' 
-   
-  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  # root "articles#index"
+  # root "articles#index" 
+ 
+
   root "events#index"
 end

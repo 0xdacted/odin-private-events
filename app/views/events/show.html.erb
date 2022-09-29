@@ -5,12 +5,12 @@
 <% @event.attendees.each do |attendee| %> 
   <p> <%= attendee.email %> </p>
 <% end %>
-<% if @event.creator == current_user %>
-  <p> You are hosting this event! </p>
-<% elsif @event.attendees.include?(current_user) %> 
+<% if @event.creator == current_user %> 
+ <p> You are hosting this event! </p> 
+<% if @event.attendees.include?(current_user) %> 
  <p> You are already attending this event! </p>
- <%= link_to 'Cancel rsvp', cancel_rsvp_event_path(@event), method: :delete %>%
-<% else %> %>
+ <%= button_to 'Cancel rsvp', cancel_rsvp_event_path(@event), method: :delete %>
+<% else %> 
   <%= button_to 'rsvp', rsvp_event_path(@event), method: :put %>
 <% end %> 
   
