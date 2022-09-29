@@ -1,1 +1,2 @@
-<%= @user.event.creator.all %>
+<%= current_user.event.creator.all %>
+<%= current_user.attended_events.all %>
