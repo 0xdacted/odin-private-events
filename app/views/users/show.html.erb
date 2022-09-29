@@ -6,5 +6,11 @@
 
 <h2> Attending: </h2>
 <% current_user.attended_events.each do |event| %>
-  <p> <%= event.title %> </p>
-  <% end %>
+  <% if event.date > DateTime.now %>
+    <h4> Upcoming: </h4>
+      <p> <%= event.title %> </p>
+  <% else %>
+    <h4> Past: </h4>
+      <p> <%= event.title %> </p>
+   <% end%>
+<% end %>
