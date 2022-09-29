@@ -1,2 +1,10 @@
-<%= current_user.event.creator.all %>
-<%= current_user.attended_events.all %>
+
+<h2> Hosting: </h2>
+  <% current_user.hosted_events.each do |event|%>
+  <p> <%= event.title %> </p>
+  <% end %>
+
+<h2> Attending: </h2>
+<% current_user.attended_events.each do |event| %>
+  <p> <%= event.title %> </p>
+  <% end %>

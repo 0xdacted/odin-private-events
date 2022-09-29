@@ -2,7 +2,9 @@
 <p> <%= @event.body %> </p>
 <p> <%= @event.location %> </p>
 <p> <%= @event.date %> </p>
-<p> <%= @event.attendees.all %> </p>
+<% @event.attendees.each do |attendee| %> 
+  <p> <%= attendee.email %> </p>
+<% end %>
 <% if @event.creator == current_user || @event.attendees.include?(current_user) %> 
  <p> You are already attending this event! </p>
 <% else %> %>
