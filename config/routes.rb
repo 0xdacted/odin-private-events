@@ -11,11 +11,14 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     get 'users/:id' => 'users#show' 
+    get 'users/sign_out' => "devise/sessions#destroy"
+    get 'users/sign_in' => "devise/sessions#new_user_session_path"
+    get 'users/sign_up' => "devise/sessions#new_user_registration_path"
   end
 
   scope do
     get 'events/:id' => 'events#show' 
-    post "events/:id", to: "events#rsvp" 
+   
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
