@@ -3,12 +3,12 @@ class Event < ApplicationRecord
   has_many :rsvps, foreign_key: :attended_event_id
   has_many :attendees, through: :rsvps
 
- def self.past
-  where(event.date < DateTime.now)
- end
+  def self.upcoming
+    where("date > ?", DateTime.now)
+  end
 
- def self.upcoming
-  where(event.date > DateTime.now)
+  def self.past
+    where("date < ?", DateTime.now)
   end
 
 end

@@ -1,13 +1,22 @@
 <h1>Available Events</h1>
 
 <div class="container">
-  <% @events.each do |event| %>
+<h2>Upcoming Events:</h2>
+<% @events.upcoming.each do |event| %>
     <div class = "event">
       <p class = "creator"><%= event.creator.email %></p>
       <h3 class="title"><%= link_to event.title, event %> </h1>
       <p class= "location"><%= event.location%></p>
       <p class= "date"><%= event.date%></p>
-      
+      <% end %>
+
+  <h2>Past Events: </h2>
+   <% @events.past.each do |event| %>
+    <div class = "event">
+      <p class = "creator"><%= event.creator.email %></p>
+      <h3 class="title"><%= link_to event.title, event %> </h1>
+      <p class= "location"><%= event.location%></p>
+      <p class= "date"><%= event.date%></p>
+      <% end %>
     </div>
-  <% end %>
 </div>
