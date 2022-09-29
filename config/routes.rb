@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :users
   
   resources :events do
     member do
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
     get 'users/sign_out' => "devise/sessions#destroy"
     get 'users/sign_in' => "devise/sessions#new_user_session_path"
     get 'users/sign_up' => "devise/sessions#new_user_registration_path"
+    get 'users/profile' => 'users#show'
   end
 
   scope do

@@ -11,7 +11,9 @@
     <% if user_signed_in? %>
       <li>
       <%= link_to('Logout', destroy_user_session_path, method: :delete) %> 
-       <%= link_to 'New Event', new_event_path %>       
+       <%= link_to 'New Event', new_event_path %>
+       <%= link_to 'Edit Profile', edit_user_registration_path %>
+       <%= link_to 'Your Events', user_path(current_user) %>       
       </li>
     <% else %>
       <li>
