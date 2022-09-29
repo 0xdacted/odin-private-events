@@ -3,12 +3,8 @@ class Event < ApplicationRecord
   has_many :rsvps, foreign_key: :attended_event_id
   has_many :attendees, through: :rsvps
 
-  def self.upcoming
-    where("date > ?", DateTime.now)
-  end
+  scope :upcoming, -> { where("date > ?", DateTime.now) }
 
-  def self.past
-    where("date < ?", DateTime.now)
-  end
+  scope :past, -> { where("date < ?", DateTime.now) }
 
 end
