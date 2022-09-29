@@ -6,7 +6,7 @@
 
 <h2> Attending: </h2>
 <% current_user.attended_events.each do |event| %>
-  <% if event.date > DateTime.now %>
+  <% if (event.date > DateTime.now) %>
     <h4> Upcoming: </h4>
       <p> <%= event.title %> </p>
   <% else %>
