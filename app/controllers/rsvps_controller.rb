@@ -1,8 +1,14 @@
 class RsvpsController < ApplicationController
  
   def create
-    @rsvp = current_user.attended_events.create(attended_event_id: params[:event_id], attendee_id: params[:user_id])
+   current_user.attended_events.create(rsvp_params)
     redirect_to 'events#index'
+  end
+
+  private
+
+  def rsvp_params
+    params.require(:rsvp).permit(:attended_event_id, :attendee_id)
   end
 
 end
